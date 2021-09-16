@@ -34,7 +34,7 @@ translation_of: Learn/JavaScript/Asynchronous/Timeouts_and_intervals
  <dt><code><a href="/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval">setInterval()</a></code></dt>
  <dd>Executa um bloco específico repetidamente com um intervalo fixo entre cada chamada.</dd>
  <dt><code><a href="/en-US/docs/Web/API/window/requestAnimationFrame">requestAnimationFrame()</a></code></dt>
- <dd>Uma versão moderna de <code>setInterval()</code>. Ela executa um  bloc de código específico antes do navegador renderizar a tela novamento, permitindo que seja executada em uma taxa de quadros adequada, independentemente do ambiente em que está sendo executado.</dd>
+ <dd>Uma versão moderna de <code>setInterval()</code>. Ela executa um bloco de código específico antes do navegador renderizar a tela novamente, permitindo que seja executada em uma taxa de quadros adequada, independentemente do ambiente em que está sendo executado.</dd>
 </dl>
 
 <p>O código executado por estas funções é executado na main thread (depois do dado intervalo).</p>
@@ -56,7 +56,7 @@ translation_of: Learn/JavaScript/Asynchronous/Timeouts_and_intervals
 </ul>
 
 <div class="blockIndicator note">
-<p><strong>NOTA:</strong> O tempos especificafo <strong>não</strong> é o tempo garantido de execução, mas sim o tempo míniimo de execução. As callback que você passa para essas funções não podem ser executadas até que a main thread esteja vazia.</p>
+<p><strong>NOTA:</strong> O tempo especificado <strong>não</strong> é o tempo garantido de execução, mas sim o tempo mínimo de execução. As callback que você passa para essas funções não podem ser executadas até que a main thread esteja vazia.</p>
 
 <p>Como consequência, códigos como <code>setTimeout(fn, 0)</code><em> </em>serão executados assim que a fila estiver vazia, <strong>não</strong> imediatamente. Se você executar código como <code>setTimeout(fn, 0)</code> e depois imediatamente executar um loop que conta de 1 a 10 bilhões, sua callback será executada depois de alguns segundos.</p>
 </div>
@@ -111,7 +111,7 @@ let myGreeting = setTimeout(sayHi, 2000);</pre>
 
 <h2 id="setInterval">setInterval()</h2>
 
-<p><code>setTimeout()</code> funciona perfeitamento quando você precisa executar algum código depois de um período de tempo. Mas o que acontece quando voc~e precisa executar o código de novo e de novo — por exemplo, no caso de uma animação?</p>
+<p><code>setTimeout()</code> funciona perfeitamente quando você precisa executar algum código depois de um período de tempo. Mas o que acontece quando você precisa executar o código de novo e de novo — por exemplo, no caso de uma animação?</p>
 
 <p>É aí que o <code><a href="/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval">setInterval()</a></code> entra. Ele funciona de uma maneira muito similar à <code>setTimeout()</code>, exceto que a função que você passar como primeiro parâmetro é executada repetidamente em não menos que um número determinado de milissegundos dado no segundo parâmetro, ao invés de apenas uma vez. Você também pode passar qualquer parâmetro sendo executado como um parâmetro subsequente da chamada de <code>setInterval()</code>.</p>
 
